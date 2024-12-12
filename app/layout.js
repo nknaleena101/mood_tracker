@@ -1,7 +1,7 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fugaz_One, Open_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
+const Opensans = Open_Sans({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
@@ -11,20 +11,39 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const Fugaz = Fugaz_One({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  weight: ['400']
+});
+
 export const metadata = {
   title: "Mood Tracker",
   description: "Track your mood every day of the year",
 };
 
 export default function RootLayout({ children }) {
+  // creating a variable
+  const header = (
+    <header className="p-4 sm:p-8 flex items-center justify-between gap-4"> 
+      <h1 className={'text-base sm:text-lg textGradient ' + Fugaz.className}>Mood Tracker</h1>
+    </header>
+  )
+
+  const footer = (
+    <footer className="p-4 sm:p-8 ">
+      footer
+    </footer>
+  )
+  
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={ 'w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-800 ' + Opensans.className}
       >
-        <header>Header</header>
+        {header}
         {children}
-        <footer>footer</footer>
+        {footer}
       </body>
     </html>
   );
