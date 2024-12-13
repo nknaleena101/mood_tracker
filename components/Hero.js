@@ -1,6 +1,7 @@
 import React from 'react'
 import { Fugaz_One } from 'next/font/google' 
 import Button from './Button';
+import Calendar from './calendar';
 
 const Fugaz = Fugaz_One({
   variable: "--font-geist-mono",
@@ -19,6 +20,7 @@ export default function Hero() {
         <Button text="Sign Up"/>
         <Button text="Login" dark/>
       </div>
+      <Calendar/>
     </div>
   )
 }
