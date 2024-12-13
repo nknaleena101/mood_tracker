@@ -1,4 +1,4 @@
-import { Fugaz_One, Open_Sans, } from "next/font/google";
+import { Fugaz_One, Open_Sans } from "next/font/google";
 import "./globals.css";
 
 const Opensans = Open_Sans({
@@ -26,8 +26,8 @@ export default function RootLayout({ children }) {
   )
 
   const footer = (
-    <footer className="p-4 sm:p-8 ">
-      footer
+    <footer className="p-4 sm:p-8 grid place-items-center">
+      <p className={'text-indigo-400 ' + Fugaz.className}>Created with ❤</p>
     </footer>
   )
   
