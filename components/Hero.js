@@ -1,7 +1,7 @@
 import React from 'react'
 import { Fugaz_One } from 'next/font/google' 
 import Button from './Button';
-import Calendar from './calendar';
+import Calendar from './Calendar';
 
 const Fugaz = Fugaz_One({
   variable: "--font-geist-mono",
