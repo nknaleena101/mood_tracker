@@ -1,5 +1,6 @@
 import { Fugaz_One } from 'next/font/google';
 import React from 'react'
+import Calendar from './Calendar';
 
 const Fugaz = Fugaz_One({
   variable: "--font-geist-mono",
@@ -36,21 +37,21 @@ export default function Dashboard() {
             )
           })}
       </div>
-          <h4 className={'text-4xl sm:text-5xl md:text-6xl text-center '+ Fugaz.className}>
+          <h4 className={'text-5xl sm:text-6xl md:text-7xl text-center '+ Fugaz.className}>
             How do you <span className='textGradient'>feel</span> today?
           </h4>
 
-          <div className='grid grid-cols-2 sm:grid-col-5 gap-4'>
+          <div className='flex items-stretch flex-wrap gap-4'>
             {Object.keys(moods).map((mood, moodIndex) =>{
               return(
-                <button className={'p-4 rounded-lg purpleShadow duration-200 bg-indigo-50 hover:bg-indigo-100 ' + (moodIndex === 4 ? ' col-span-2 ' : ' ')} key={moodIndex}>
-                  <p>{mood}</p>
-                  <p>{moods[mood]}</p>
+                <button className={'p-4 px-5 rounded-2xl purpleShadow duration-200 bg-indigo-50 hover:bg-indigo-100 text-center flex flex-col gap-4 flex-1'} key={moodIndex}> 
+                  <p className='text-4xl sm:text-5xl md:text-6xl'>{moods[mood]}</p>
+                  <p className={'text-indigo-500 text-xs sm:text-sm md:text-base ' + Fugaz.className}>{mood}</p>
                 </button>
-
               )
             })}
           </div>
+          <Calendar/>
     </div>
   )
 }
