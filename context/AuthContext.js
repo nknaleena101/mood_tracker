@@ -37,6 +37,7 @@ export function AuthProvider({children}) {
                 setLoading(true)
                 setCurrentUser(user)
                 if(!user){
+                    console.log('No user found')
                     return 
                 }
 
