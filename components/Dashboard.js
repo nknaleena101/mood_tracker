@@ -1,6 +1,9 @@
+'use client'
 import { Fugaz_One } from 'next/font/google';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Calendar from './Calendar';
+// import { useEffect, useState } from 'react';
+import { useAuth } from '@/context/AuthContext';
 
 const Fugaz = Fugaz_One({
   variable: "--font-geist-mono",
@@ -9,6 +12,18 @@ const Fugaz = Fugaz_One({
 });
 
 export default function Dashboard() {
+  const { currentUser, userDataObj } = useAuth()
+  
+  function countValues(){
+
+  }
+
+  function handleSetMood(mood){
+    // update the current state
+    // update the globle state
+    // update firebase
+  }
+  
   const statuses = {
     num_days: 14,
     time_remaining: '13:14:26',
@@ -22,6 +37,13 @@ export default function Dashboard() {
     'Good': '😊',
     'Exited': '😍',
   }
+
+  useEffect(() => {
+    if (!currentUser || !userDataObj){
+      return
+    }
+    stringifyResumeDataCache(userDataObj)
+  }, [currentUser, userDataObj])
   
   return (
     <div className='flex flex-col flex-1 gap-8 sm:gap-12 md:gap-16'>
@@ -51,7 +73,7 @@ export default function Dashboard() {
               )
             })}
           </div>
-          <Calendar/>
+          <Calendar data={data} handleSetMood={handleSetMood} />
     </div>
   )
 }
