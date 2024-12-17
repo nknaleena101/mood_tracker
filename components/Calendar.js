@@ -1,5 +1,6 @@
+'use client'
 import { baseRating, gradients } from "@/utils";
-import React from "react";
+import React, {useState} from "react";
 
 const months = {
   January: "Jan",
@@ -40,7 +41,13 @@ export const data = {
 };
 
 export default function Calendar(props) {
-  const { demo } = props;
+  const { demo, handleSetMood, data } = props;
+  
+  const now = new Date()
+  const currMonth = now.getMonth()
+  const [selectedMonth, setSelectedMonth] = useState(Object.keys(months)[currMonth])
+
+  console.log('Selected moonth: ', selectedMonth)
   const year = 2024;
   const month = "December";
   const monthNow = new Date(year, Object.keys(months).indexOf(month), 1);
